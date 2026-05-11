@@ -3,13 +3,18 @@ const c = require("ansi-colors")
 const requiredEnvs = [
   {
     key: "NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY",
-    // TODO: we need a good doc to point this to
     description:
       "Learn how to create a publishable key: https://docs.medusajs.com/v2/resources/storefront-development/publishable-api-keys",
   },
 ]
 
 function checkEnvVariables() {
+  // Skip env check during Next.js build phase (e.g. Railway build time)
+  // Variables like NEXT_PUBLIC_* must be set as Railway env vars, not needed at build
+  if (process.env.NEXT_PHASE === "phase-production-build") {
+    return
+  }
+
   const missingEnvs = requiredEnvs.filter(function (env) {
     return !process.env[env.key]
   })
