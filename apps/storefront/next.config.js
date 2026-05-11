@@ -1,6 +1,5 @@
+const { PHASE_PRODUCTION_BUILD } = require("next/constants")
 const checkEnvVariables = require("./check-env-variables")
-
-checkEnvVariables()
 
 /**
  * @type {import('next').NextConfig}
@@ -50,4 +49,9 @@ const nextConfig = {
   },
 }
 
-module.exports = nextConfig
+module.exports = (phase) => {
+  if (phase !== PHASE_PRODUCTION_BUILD) {
+    checkEnvVariables()
+  }
+  return nextConfig
+}
