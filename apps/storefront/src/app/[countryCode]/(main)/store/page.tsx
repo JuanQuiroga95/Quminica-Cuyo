@@ -36,6 +36,16 @@ export default async function StorePage(props: Params) {
   const categories = await listCategories()
   const customer = await retrieveCustomer()
 
+  // Filter categories to only show "Materias Primas" and "Insumos de Limpieza"
+  const filteredCategories = categories.filter(c => 
+    c.name.toLowerCase().includes("materia") || 
+    c.name.toLowerCase().includes("insumo") ||
+    c.handle.includes("materia") ||
+    c.handle.includes("insumo")
+  )
+
+  const categoryIds = filteredCategories.map(c => c.id)
+
   return (
     <div className="bg-neutral-100">
       <div
@@ -44,7 +54,7 @@ export default async function StorePage(props: Params) {
       >
         <StoreBreadcrumb />
         <div className="flex flex-col small:flex-row small:items-start gap-3">
-          <RefinementList sortBy={sort} categories={categories} />
+          <RefinementList sortBy={sort} categories={filteredCategories} />
           <div className="w-full">
             <Suspense fallback={<SkeletonProductGrid />}>
               <PaginatedProducts
@@ -52,6 +62,7 @@ export default async function StorePage(props: Params) {
                 page={pageNumber}
                 countryCode={params.countryCode}
                 customer={customer}
+                categoryIds={categoryIds}
               />
             </Suspense>
           </div>

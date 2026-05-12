@@ -11,8 +11,16 @@ export default async function Footer() {
   }).catch(() => ({ collections: [] as any[] }))
   const product_categories = await listCategories({
     offset: 0,
-    limit: 6,
+    limit: 100, // Fetch more to filter effectively
   }).catch(() => [] as any[])
+
+  // Filter categories to only show "Materias Primas" and "Insumos de Limpieza"
+  const filteredCategories = product_categories.filter(c => 
+    c.name.toLowerCase().includes("materia") || 
+    c.name.toLowerCase().includes("insumo") ||
+    c.handle.includes("materia") ||
+    c.handle.includes("insumo")
+  )
 
   return (
     <footer className="border-t border-ui-border-base w-full bg-slate-900 text-slate-300">
@@ -43,7 +51,7 @@ export default async function Footer() {
           </div>
 
           <div className="text-small-regular gap-10 md:gap-x-16 grid grid-cols-2 sm:grid-cols-3">
-            {product_categories && product_categories?.length > 0 && (
+            {filteredCategories && filteredCategories?.length > 0 && (
               <div className="flex flex-col gap-y-2">
                 <span className="txt-small-plus text-white font-semibold">
                   Categorías
@@ -52,7 +60,7 @@ export default async function Footer() {
                   className="grid grid-cols-1 gap-2"
                   data-testid="footer-categories"
                 >
-                  {product_categories?.slice(0, 6).map((c) => {
+                  {filteredCategories?.slice(0, 6).map((c) => {
                     if (c.parent_category) {
                       return
                     }

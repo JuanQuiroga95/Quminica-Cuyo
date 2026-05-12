@@ -21,12 +21,16 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   try {
     const product_category = await getCategoryByHandle(params.category)
 
+    if (!product_category) {
+      notFound()
+    }
+
     const title = product_category.name
 
-    const description = product_category.description ?? `${title} category.`
+    const description = product_category.description ?? `Categoría ${title}.`
 
     return {
-      title: `${title} | Medusa Store`,
+      title: `${title} | Industria Química de Cuyo`,
       description,
       alternates: {
         canonical: `${params.category.join("/")}`,
@@ -47,7 +51,12 @@ export default async function CategoryPage(props: Props) {
   const params = await props.params
   const { sortBy, page } = searchParams
 
-  const categories = await listCategories()
+  let categories: Awaited<ReturnType<typeof listCategories>> = []
+  try {
+    categories = await listCategories()
+  } catch (error) {
+    notFound()
+  }
 
   const currentCategory = categories.find(
     (category) => category.handle === params.category.join("/")

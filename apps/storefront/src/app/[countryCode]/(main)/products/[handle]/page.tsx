@@ -20,23 +20,29 @@ export async function generateStaticParams() {
 export async function generateMetadata(props: Props): Promise<Metadata> {
   const params = await props.params
   const { handle } = params
-  const region = await getRegion(params.countryCode)
 
-  if (!region) {
+  if (!handle || handle === "undefined") {
     notFound()
   }
 
-  const product = await getProductByHandle(handle, region.id)
+  let product: Awaited<ReturnType<typeof getProductByHandle>> | undefined
+  try {
+    const region = await getRegion(params.countryCode)
+    if (!region) notFound()
+    product = await getProductByHandle(handle, region.id)
+  } catch (error) {
+    notFound()
+  }
 
   if (!product) {
     notFound()
   }
 
   return {
-    title: `${product.title} | Medusa Store`,
+    title: `${product.title} | Industria Química de Cuyo`,
     description: `${product.title}`,
     openGraph: {
-      title: `${product.title} | Medusa Store`,
+      title: `${product.title} | Industria Química de Cuyo`,
       description: `${product.title}`,
       images: product.thumbnail ? [product.thumbnail] : [],
     },
@@ -45,14 +51,22 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
 
 export default async function ProductPage(props: Props) {
   const params = await props.params
-  const region = await getRegion(params.countryCode)
 
-  if (!region) {
+  if (!params.handle || params.handle === "undefined") {
     notFound()
   }
 
-  const pricedProduct = await getProductByHandle(params.handle, region.id)
-  if (!pricedProduct) {
+  let region: Awaited<ReturnType<typeof getRegion>> | undefined
+  let pricedProduct: Awaited<ReturnType<typeof getProductByHandle>> | undefined
+  try {
+    region = await getRegion(params.countryCode)
+    if (!region) notFound()
+    pricedProduct = await getProductByHandle(params.handle, region.id)
+  } catch (error) {
+    notFound()
+  }
+
+  if (!region || !pricedProduct) {
     notFound()
   }
 

@@ -68,24 +68,24 @@ const Hero = () => {
           </div>
 
           {/* Stats bar */}
-          <div className="flex flex-wrap justify-center gap-8 sm:gap-16 mt-8 pt-8 border-t border-white/10">
-            <div className="text-center">
-              <p className="text-2xl sm:text-3xl font-bold text-white">20+</p>
-              <p className="text-xs sm:text-sm text-blue-200/60 uppercase tracking-wider">Años de experiencia</p>
+          <div className="flex flex-wrap justify-center gap-8 sm:gap-16 mt-8 pt-8 border-t border-white/10 relative z-30">
+            <div className="text-center group transition-transform hover:scale-105">
+              <p className="text-3xl sm:text-4xl font-extrabold text-white drop-shadow-md">20+</p>
+              <p className="text-xs sm:text-sm text-blue-200 font-medium uppercase tracking-wider">Años de experiencia</p>
             </div>
-            <div className="text-center">
-              <p className="text-2xl sm:text-3xl font-bold text-white">500+</p>
-              <p className="text-xs sm:text-sm text-blue-200/60 uppercase tracking-wider">Clientes B2B</p>
+            <div className="text-center group transition-transform hover:scale-105">
+              <p className="text-3xl sm:text-4xl font-extrabold text-white drop-shadow-md">500+</p>
+              <p className="text-xs sm:text-sm text-blue-200 font-medium uppercase tracking-wider">Clientes B2B</p>
             </div>
-            <div className="text-center">
-              <p className="text-2xl sm:text-3xl font-bold text-white">100+</p>
-              <p className="text-xs sm:text-sm text-blue-200/60 uppercase tracking-wider">Productos</p>
+            <div className="text-center group transition-transform hover:scale-105">
+              <p className="text-3xl sm:text-4xl font-extrabold text-white drop-shadow-md">100+</p>
+              <p className="text-xs sm:text-sm text-blue-200 font-medium uppercase tracking-wider">Productos</p>
             </div>
           </div>
         </div>
 
         {/* Bottom gradient fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent z-20" />
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white via-white/80 to-transparent z-10" />
       </div>
 
       {/* Quiénes Somos Section */}

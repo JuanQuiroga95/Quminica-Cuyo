@@ -9,7 +9,7 @@ export default async function FeaturedProducts({
 }) {
   const { collections } = await listCollections({
     limit: "3",
-    fields: "*products",
+    fields: "*products,*products.categories",
   })
   const region = await getRegion(countryCode)
 
@@ -17,11 +17,22 @@ export default async function FeaturedProducts({
     return null
   }
 
+  // Filter products in each collection to only show relevant ones
+  const filteredCollections = collections.map(collection => ({
+    ...collection,
+    products: collection.products?.filter(p => 
+      p.categories?.some(c => 
+        c.name.toLowerCase().includes("materia") || 
+        c.name.toLowerCase().includes("insumo")
+      )
+    )
+  })).filter(c => c.products && c.products.length > 0)
+
   return (
     <ul className="flex flex-col gap-x-6 bg-neutral-100">
-      {collections.map((collection) => (
+      {filteredCollections.map((collection) => (
         <li key={collection.id}>
-          <ProductRail collection={collection} region={region} />
+          <ProductRail collection={collection as any} region={region} />
         </li>
       ))}
     </ul>

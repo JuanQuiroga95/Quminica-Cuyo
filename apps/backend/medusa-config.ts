@@ -7,7 +7,8 @@ loadEnv(process.env.NODE_ENV || "development", process.cwd());
 
 module.exports = defineConfig({
   admin: {
-    disable: true,
+    disable: process.env.DISABLE_MEDUSA_ADMIN === "true",
+    backendUrl: process.env.MEDUSA_BACKEND_URL,
   },
   projectConfig: {
     databaseUrl: process.env.DATABASE_URL,
@@ -21,13 +22,13 @@ module.exports = defineConfig({
   },
   modules: {
     [COMPANY_MODULE]: {
-      resolve: "./modules/company",
+      resolve: "./src/modules/company",
     },
     [QUOTE_MODULE]: {
-      resolve: "./modules/quote",
+      resolve: "./src/modules/quote",
     },
     [APPROVAL_MODULE]: {
-      resolve: "./modules/approval",
+      resolve: "./src/modules/approval",
     },
   },
 });
