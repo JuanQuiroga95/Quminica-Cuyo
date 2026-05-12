@@ -8,11 +8,11 @@ export default async function Footer() {
   const { collections } = await listCollections({
     offset: "0",
     limit: "6",
-  })
+  }).catch(() => ({ collections: [] as any[] }))
   const product_categories = await listCategories({
     offset: 0,
     limit: 6,
-  })
+  }).catch(() => [] as any[])
 
   return (
     <footer className="border-t border-ui-border-base w-full bg-slate-900 text-slate-300">

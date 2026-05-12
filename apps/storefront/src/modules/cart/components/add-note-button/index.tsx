@@ -57,7 +57,7 @@ const AddNoteButton = ({
           onClick={() => setIsOpen(true)}
           disabled={disabled}
         >
-          Add note
+          Agregar nota
         </button>
       )}
       {note?.length > 0 && (
@@ -67,7 +67,7 @@ const AddNoteButton = ({
             isOpen ? "opacity-0 pointer-events-none" : "opacity-100"
           )}
         >
-          <span className="text-neutral-950">Note:&nbsp;</span>
+          <span className="text-neutral-950">Nota:&nbsp;</span>
           <span
             className="text-neutral-600 italic cursor-pointer hover:text-neutral-950 hover:underline"
             onClick={() => setIsOpen(true)}

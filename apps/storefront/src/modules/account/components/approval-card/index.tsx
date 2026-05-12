@@ -91,7 +91,7 @@ export default async function ApprovalCard({
           cartWithApprovals.completed_at ? (
             <Text className="flex items-center gap-x-1 text-xs text-grey-500">
               <CheckMini className="inline-block" />
-              Order completed at{" "}
+              Pedido completado el{" "}
               {updatedAt.toLocaleDateString("en-GB", {
                 year: "numeric",
                 month: "numeric",
@@ -100,7 +100,7 @@ export default async function ApprovalCard({
             </Text>
           ) : (
             <Text className="flex items-center gap-x-1 text-xs text-grey-500">
-              Approved at{" "}
+              Aprobado el{" "}
               {updatedAt.toLocaleDateString("en-GB", {
                 year: "numeric",
                 month: "numeric",
@@ -116,7 +116,7 @@ export default async function ApprovalCard({
           <div className="flex items-center text-small-regular">
             <XMarkMini className="inline-block mr-1" />
             <span data-testid="order-display-id">
-              Rejected at{" "}
+              Rechazado el{" "}
               {updatedAt.toLocaleDateString("en-GB", {
                 year: "numeric",
                 month: "numeric",
@@ -137,7 +137,7 @@ export default async function ApprovalCard({
           </span>
           {"·"}
           <span className="px-2">{`${numberOfLines} ${
-            numberOfLines > 1 ? "items" : "item"
+            numberOfLines > 1 ? "productos" : "producto"
           }`}</span>
           {type === "admin" && (
             <ApprovalCardActions cartWithApprovals={cartWithApprovals} />

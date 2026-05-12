@@ -91,7 +91,7 @@ const OrderCard = ({ order }: OrderCardProps) => {
             </span>
             {"·"}
             <span className="px-2">{`${numberOfLines} ${
-              numberOfLines > 1 ? "items" : "item"
+              numberOfLines > 1 ? "productos" : "producto"
             }`}</span>
           </div>
 
@@ -101,7 +101,7 @@ const OrderCard = ({ order }: OrderCardProps) => {
               variant="secondary"
               className="rounded-full text-xs"
             >
-              Export to PDF
+              Exportar a PDF
             </Button> */}
             <LocalizedClientLink href={`/account/orders/details/${order.id}`}>
               <Button
@@ -109,7 +109,7 @@ const OrderCard = ({ order }: OrderCardProps) => {
                 variant="secondary"
                 className="rounded-full text-xs"
               >
-                Details
+                Detalles
               </Button>
             </LocalizedClientLink>
           </div>

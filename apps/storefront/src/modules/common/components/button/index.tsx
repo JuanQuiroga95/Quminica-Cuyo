@@ -8,14 +8,24 @@ const Button = ({
 }: ButtonProps): React.ReactNode => {
   const variant = props.variant ?? "primary"
 
-  const className = clx(classNameProp, {
-    "!shadow-borders-base !border-none":
-      variant === "secondary" || props.disabled,
-    "!shadow-none bg-neutral-900 text-white":
-      variant === "primary" && !props.disabled,
-    "!shadow-none bg-transparent text-neutral-900": variant === "transparent",
-  })
-  console.log(className)
+  const hasCustomBg = /(^|\s)(bg-|from-)/.test(classNameProp ?? "")
+  const hasCustomText = /(^|\s)text-/.test(classNameProp ?? "")
+
+  const className = clx(
+    {
+      "!shadow-borders-base !border-none":
+        variant === "secondary" || props.disabled,
+      "!shadow-none": variant === "primary" && !props.disabled,
+      "bg-neutral-900":
+        variant === "primary" && !props.disabled && !hasCustomBg,
+      "text-white":
+        variant === "primary" && !props.disabled && !hasCustomText,
+      "!shadow-none bg-transparent text-neutral-900":
+        variant === "transparent",
+    },
+    classNameProp
+  )
+
   return (
     <MedusaButton
       className={`!rounded-full text-sm font-normal ${className}`}

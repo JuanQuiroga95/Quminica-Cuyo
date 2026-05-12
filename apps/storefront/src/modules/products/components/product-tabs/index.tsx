@@ -12,11 +12,11 @@ type ProductTabsProps = {
 const ProductTabs = ({ product }: ProductTabsProps) => {
   const tabs = [
     {
-      label: "Description",
+      label: "Descripción",
       component: <ProductSpecsTab product={product} />,
     },
     {
-      label: "Specifications",
+      label: "Especificaciones",
       component: <ProductSpecificationsTab product={product} />,
     },
   ]
@@ -72,15 +72,15 @@ const ProductSpecificationsTab = ({ product }: ProductTabsProps) => {
           {product.weight && (
             <Table.Row>
               <Table.Cell className="border-r">
-                <span className="font-semibold">Weight</span>
+                <span className="font-semibold">Peso</span>
               </Table.Cell>
-              <Table.Cell className="px-4">{product.weight} grams</Table.Cell>
+              <Table.Cell className="px-4">{product.weight} g</Table.Cell>
             </Table.Row>
           )}
           {(product.height || product.width || product.length) && (
             <Table.Row>
               <Table.Cell className="border-r">
-                <span className="font-semibold">Dimensions (HxWxL)</span>
+                <span className="font-semibold">Dimensiones (AxAxL)</span>
               </Table.Cell>
               <Table.Cell className="px-4">
                 {product.height}mm x {product.width}mm x {product.length}mm

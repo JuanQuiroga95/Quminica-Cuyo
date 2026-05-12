@@ -5,6 +5,7 @@ import CartButton from "@/modules/cart/components/cart-button"
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import FilePlus from "@/modules/common/icons/file-plus"
 import { MegaMenuWrapper } from "@/modules/layout/components/mega-menu"
+import RegionSwitcher from "@/modules/layout/components/region-switcher"
 import { RequestQuoteConfirmation } from "@/modules/quotes/components/request-quote-confirmation"
 import { RequestQuotePrompt } from "@/modules/quotes/components/request-quote-prompt"
 import SkeletonAccountButton from "@/modules/skeletons/components/skeleton-account-button"
@@ -55,9 +56,13 @@ export async function NavigationHeader() {
                 type="text"
                 placeholder="Buscar productos..."
                 className="bg-gray-100 text-zinc-900 px-4 py-2 rounded-full pr-10 shadow-borders-base hidden small:inline-block hover:cursor-not-allowed"
-                title="Instale un proveedor de búsqueda para habilitar la búsqueda de productos"
+                title="Próximamente: búsqueda de productos"
               />
             </div>
+
+            <Suspense fallback={null}>
+              <RegionSwitcher />
+            </Suspense>
 
             <div className="h-4 w-px bg-neutral-300" />
 

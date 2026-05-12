@@ -21,14 +21,14 @@ export default async function ProductRail({
   const productsWithPrices = await getProductsById({
     ids: products.map((p) => p.id!),
     regionId: region.id,
-  })
+  }).catch(() => [] as HttpTypes.StoreProduct[])
 
   return (
     <div className="content-container py-12 small:py-24 bg-neutral-100">
       <div className="flex justify-between mb-8">
         <Text className="text-base">{collection.title}</Text>
         <InteractiveLink href={`/collections/${collection.handle}`}>
-          View all
+          Ver todo
         </InteractiveLink>
       </div>
       <ul className="grid grid-cols-1 small:grid-cols-4 gap-x-3 gap-y-3 small:gap-y-36">

@@ -27,13 +27,21 @@ const ItemPreview = ({ item, showBorders = true, currencyCode }: ItemProps) => {
       )}
     >
       <div className="flex gap-x-4 items-start">
-        <LocalizedClientLink href={`/products/${handle}`}>
+        {handle ? (
+          <LocalizedClientLink href={`/products/${handle}`}>
+            <Thumbnail
+              thumbnail={item.thumbnail}
+              size="square"
+              className="bg-neutral-100 rounded-lg w-10 h-10"
+            />
+          </LocalizedClientLink>
+        ) : (
           <Thumbnail
             thumbnail={item.thumbnail}
             size="square"
             className="bg-neutral-100 rounded-lg w-10 h-10"
           />
-        </LocalizedClientLink>
+        )}
         <div className="flex flex-col gap-y-2 justify-between min-h-full self-stretch">
           <div className="flex flex-col">
             <span className="txt-medium-plus text-neutral-950">
@@ -46,7 +54,7 @@ const ItemPreview = ({ item, showBorders = true, currencyCode }: ItemProps) => {
           <div className="flex small:flex-row flex-col gap-2">
             {(item.metadata?.note as string) && (
               <div className="flex gap-x-1">
-                <span className="text-neutral-950 text-xs">Note:</span>
+                <span className="text-neutral-950 text-xs">Nota:</span>
                 <span className="text-xs text-neutral-600 italic truncate max-w-44 pr-px">
                   {item.metadata?.note as string}
                 </span>
