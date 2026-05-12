@@ -15,6 +15,7 @@
   ],
   "scripts": {
     "build": "medusa build",
+    "prestart": "medusa build",
     "start": "medusa start -H 0.0.0.0 -p ${PORT:-9000}",
     "dev": "medusa develop",
     "clean": "rm -rf .medusa/server .medusa/admin node_modules",
