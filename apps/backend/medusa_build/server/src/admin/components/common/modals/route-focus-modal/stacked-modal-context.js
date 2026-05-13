@@ -1,0 +1,6 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.StackedModalContext = void 0;
+const react_1 = require("react");
+exports.StackedModalContext = (0, react_1.createContext)(null);
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic3RhY2tlZC1tb2RhbC1jb250ZXh0LmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vc3JjL2FkbWluL2NvbXBvbmVudHMvY29tbW9uL21vZGFscy9yb3V0ZS1mb2N1cy1tb2RhbC9zdGFja2VkLW1vZGFsLWNvbnRleHQudHN4Il0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7OztBQUFBLGlDQUFzQztBQVN6QixRQUFBLG1CQUFtQixHQUFHLElBQUEscUJBQWEsRUFDOUMsSUFBSSxDQUNMLENBQUMifQ==

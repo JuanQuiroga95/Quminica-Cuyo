@@ -1,0 +1,6 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.RouteModalProviderContext = void 0;
+const react_1 = require("react");
+exports.RouteModalProviderContext = (0, react_1.createContext)(null);
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicm91dGUtbW9kYWwtY29udGV4dC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uLy4uLy4uLy4uL3NyYy9hZG1pbi9jb21wb25lbnRzL2NvbW1vbi9tb2RhbHMvcm91dGUtZm9jdXMtbW9kYWwvcm91dGUtbW9kYWwtY29udGV4dC50c3giXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7O0FBQUEsaUNBQXNDO0FBVXpCLFFBQUEseUJBQXlCLEdBQ3BDLElBQUEscUJBQWEsRUFBaUMsSUFBSSxDQUFDLENBQUMifQ==
