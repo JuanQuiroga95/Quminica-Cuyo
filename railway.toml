@@ -1,5 +1,5 @@
 [build]
-buildCommand = "pnpm --filter @b2b-starter/backend build"
+buildCommand = "echo 'Skipping build, using pre-committed .medusa directory'"
 
 [deploy]
 startCommand = "pnpm --filter @b2b-starter/backend start"
