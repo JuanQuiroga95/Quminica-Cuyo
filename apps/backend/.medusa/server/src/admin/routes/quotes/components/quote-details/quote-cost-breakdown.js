@@ -1,0 +1,19 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Cost = exports.CostBreakdown = void 0;
+const jsx_runtime_1 = require("react/jsx-runtime");
+const ui_1 = require("@medusajs/ui");
+const utils_1 = require("../../../../utils");
+const CostBreakdown = ({ order }) => {
+    return ((0, jsx_runtime_1.jsxs)("div", { className: "text-ui-fg-subtle flex flex-col gap-y-2 px-6 py-4", children: [(0, jsx_runtime_1.jsx)(exports.Cost, { label: "Discounts", secondaryValue: "", value: order.discount_total > 0
+                    ? `- ${(0, utils_1.formatAmount)(order.discount_total, order.currency_code)}`
+                    : "-" }), (order.shipping_methods || [])
+                .sort((m1, m2) => m1.created_at.localeCompare(m2.created_at))
+                .map((sm, i) => {
+                return ((0, jsx_runtime_1.jsx)("div", { children: (0, jsx_runtime_1.jsx)(exports.Cost, { label: "Shipping", secondaryValue: sm.name, value: (0, utils_1.formatAmount)(sm.total, order.currency_code) }, sm.id) }));
+            })] }));
+};
+exports.CostBreakdown = CostBreakdown;
+const Cost = ({ label, value, secondaryValue, tooltip, }) => ((0, jsx_runtime_1.jsxs)("div", { className: "grid grid-cols-3 items-center", children: [(0, jsx_runtime_1.jsxs)(ui_1.Text, { size: "small", leading: "compact", children: [label, " ", tooltip] }), (0, jsx_runtime_1.jsx)("div", { className: "text-right", children: (0, jsx_runtime_1.jsx)(ui_1.Text, { size: "small", leading: "compact", children: secondaryValue }) }), (0, jsx_runtime_1.jsx)("div", { className: "text-right", children: (0, jsx_runtime_1.jsx)(ui_1.Text, { size: "small", leading: "compact", children: value }) })] }));
+exports.Cost = Cost;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicXVvdGUtY29zdC1icmVha2Rvd24uanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi9zcmMvYWRtaW4vcm91dGVzL3F1b3Rlcy9jb21wb25lbnRzL3F1b3RlLWRldGFpbHMvcXVvdGUtY29zdC1icmVha2Rvd24udHN4Il0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7QUFDQSxxQ0FBb0M7QUFFcEMsNkNBQWlEO0FBRTFDLE1BQU0sYUFBYSxHQUFHLENBQUMsRUFBRSxLQUFLLEVBQXlCLEVBQUUsRUFBRTtJQUNoRSxPQUFPLENBQ0wsaUNBQUssU0FBUyxFQUFDLG1EQUFtRCxhQUNoRSx1QkFBQyxZQUFJLElBQ0gsS0FBSyxFQUFDLFdBQVcsRUFDakIsY0FBYyxFQUFDLEVBQUUsRUFDakIsS0FBSyxFQUNILEtBQUssQ0FBQyxjQUFjLEdBQUcsQ0FBQztvQkFDdEIsQ0FBQyxDQUFDLEtBQUssSUFBQSxvQkFBWSxFQUFDLEtBQUssQ0FBQyxjQUFjLEVBQUUsS0FBSyxDQUFDLGFBQWEsQ0FBQyxFQUFFO29CQUNoRSxDQUFDLENBQUMsR0FBRyxHQUVULEVBQ0QsQ0FBQyxLQUFLLENBQUMsZ0JBQWdCLElBQUksRUFBRSxDQUFDO2lCQUM1QixJQUFJLENBQUMsQ0FBQyxFQUFFLEVBQUUsRUFBRSxFQUFFLEVBQUUsQ0FDZCxFQUFFLENBQUMsVUFBcUIsQ0FBQyxhQUFhLENBQUMsRUFBRSxDQUFDLFVBQW9CLENBQUMsQ0FDakU7aUJBQ0EsR0FBRyxDQUFDLENBQUMsRUFBRSxFQUFFLENBQUMsRUFBRSxFQUFFO2dCQUNiLE9BQU8sQ0FDTCwwQ0FDRSx1QkFBQyxZQUFJLElBRUgsS0FBSyxFQUFFLFVBQVUsRUFDakIsY0FBYyxFQUFFLEVBQUUsQ0FBQyxJQUFJLEVBQ3ZCLEtBQUssRUFBRSxJQUFBLG9CQUFZLEVBQUMsRUFBRSxDQUFDLEtBQUssRUFBRSxLQUFLLENBQUMsYUFBYSxDQUFDLElBSDdDLEVBQUUsQ0FBQyxFQUFFLENBSVYsR0FDRSxDQUNQLENBQUM7WUFDSixDQUFDLENBQUMsSUFDQSxDQUNQLENBQUM7QUFDSixDQUFDLENBQUM7QUE5QlcsUUFBQSxhQUFhLGlCQThCeEI7QUFFSyxNQUFNLElBQUksR0FBRyxDQUFDLEVBQ25CLEtBQUssRUFDTCxLQUFLLEVBQ0wsY0FBYyxFQUNkLE9BQU8sR0FNUixFQUFFLEVBQUUsQ0FBQyxDQUNKLGlDQUFLLFNBQVMsRUFBQywrQkFBK0IsYUFDNUMsd0JBQUMsU0FBSSxJQUFDLElBQUksRUFBQyxPQUFPLEVBQUMsT0FBTyxFQUFDLFNBQVMsYUFDakMsS0FBSyxPQUFHLE9BQU8sSUFDWCxFQUNQLGdDQUFLLFNBQVMsRUFBQyxZQUFZLFlBQ3pCLHVCQUFDLFNBQUksSUFBQyxJQUFJLEVBQUMsT0FBTyxFQUFDLE9BQU8sRUFBQyxTQUFTLFlBQ2pDLGNBQWMsR0FDVixHQUNILEVBRU4sZ0NBQUssU0FBUyxFQUFDLFlBQVksWUFDekIsdUJBQUMsU0FBSSxJQUFDLElBQUksRUFBQyxPQUFPLEVBQUMsT0FBTyxFQUFDLFNBQVMsWUFDakMsS0FBSyxHQUNELEdBQ0gsSUFDRixDQUNQLENBQUM7QUEzQlcsUUFBQSxJQUFJLFFBMkJmIn0=

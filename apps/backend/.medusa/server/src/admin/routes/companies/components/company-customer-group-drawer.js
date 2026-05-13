@@ -1,0 +1,37 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CompanyCustomerGroupDrawer = CompanyCustomerGroupDrawer;
+const jsx_runtime_1 = require("react/jsx-runtime");
+const ui_1 = require("@medusajs/ui");
+const api_1 = require("../../../hooks/api");
+function CompanyCustomerGroupDrawer({ company, customerGroups, open, setOpen, }) {
+    const { mutateAsync: addMutate, isPending: addLoading } = (0, api_1.useAddCompanyToCustomerGroup)(company.id);
+    const { mutateAsync: removeMutate, isPending: removeLoading } = (0, api_1.useRemoveCompanyFromCustomerGroup)(company.id);
+    const handleAdd = async (groupId) => {
+        await addMutate(groupId, {
+            onSuccess: async () => {
+                setOpen(false);
+                ui_1.toast.success(`Company added to customer group successfully`);
+            },
+            onError: (error) => {
+                ui_1.toast.error("Failed to add company to customer group");
+            },
+        });
+    };
+    const handleRemove = async (groupId) => {
+        await removeMutate(groupId, {
+            onSuccess: async () => {
+                ui_1.toast.success(`Company removed from customer group successfully`);
+            },
+            onError: (error) => {
+                console.log(error);
+                ui_1.toast.error("Failed to remove company from customer group");
+            },
+        });
+    };
+    return ((0, jsx_runtime_1.jsx)(ui_1.Drawer, { open: open, onOpenChange: setOpen, children: (0, jsx_runtime_1.jsxs)(ui_1.Drawer.Content, { className: "z-50", children: [(0, jsx_runtime_1.jsx)(ui_1.Drawer.Header, { children: (0, jsx_runtime_1.jsxs)(ui_1.Drawer.Title, { children: ["Add ", company.name, " to a Customer Group"] }) }), (0, jsx_runtime_1.jsxs)(ui_1.Drawer.Body, { className: "space-y-4 h-full overflow-y-hidden", children: [(0, jsx_runtime_1.jsxs)(ui_1.Hint, { variant: "info", children: ["Adding ", company.name, " to a customer group will automatically add", " ", company.employees?.length, " linked employee", company.employees?.length === 1 ? "" : "s", " to the customer group."] }), (0, jsx_runtime_1.jsx)("div", { className: "h-full overflow-y-auto", children: (0, jsx_runtime_1.jsxs)(ui_1.Table, { children: [(0, jsx_runtime_1.jsx)(ui_1.Table.Header, { children: (0, jsx_runtime_1.jsxs)(ui_1.Table.Row, { children: [(0, jsx_runtime_1.jsx)(ui_1.Table.HeaderCell, { children: "Customer Group" }), (0, jsx_runtime_1.jsx)(ui_1.Table.HeaderCell, { className: "text-right", children: "Actions" })] }) }), (0, jsx_runtime_1.jsx)(ui_1.Table.Body, { children: customerGroups ? (customerGroups.map((group) => ((0, jsx_runtime_1.jsxs)(ui_1.Table.Row, { children: [(0, jsx_runtime_1.jsx)(ui_1.Table.Cell, { children: group.name }), (0, jsx_runtime_1.jsx)(ui_1.Table.Cell, { className: "text-right", children: company.customer_group?.id &&
+                                                        company.customer_group.id === group.id ? ((0, jsx_runtime_1.jsx)(ui_1.Button, { onClick: () => handleRemove(group.id), isLoading: removeLoading, variant: "danger", children: "Remove" })) : ((0, jsx_runtime_1.jsx)(ui_1.Button, { onClick: () => handleAdd(group.id), disabled: (company.customer_group?.id &&
+                                                            company.customer_group.id !== group.id) ||
+                                                            addLoading, isLoading: addLoading, children: "Add" })) })] }, group.id)))) : ((0, jsx_runtime_1.jsx)(ui_1.Table.Row, { children: (0, jsx_runtime_1.jsx)(ui_1.Table.Cell, { children: "No customer groups found" }) })) })] }) })] })] }) }));
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY29tcGFueS1jdXN0b21lci1ncm91cC1kcmF3ZXIuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi8uLi8uLi9zcmMvYWRtaW4vcm91dGVzL2NvbXBhbmllcy9jb21wb25lbnRzL2NvbXBhbnktY3VzdG9tZXItZ3JvdXAtZHJhd2VyLnRzeCJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQVFBLGdFQTJHQzs7QUFsSEQscUNBQWtFO0FBRWxFLDRDQUc0QjtBQUU1QixTQUFnQiwwQkFBMEIsQ0FBQyxFQUN6QyxPQUFPLEVBQ1AsY0FBYyxFQUNkLElBQUksRUFDSixPQUFPLEdBTVI7SUFDQyxNQUFNLEVBQUUsV0FBVyxFQUFFLFNBQVMsRUFBRSxTQUFTLEVBQUUsVUFBVSxFQUFFLEdBQ3JELElBQUEsa0NBQTRCLEVBQUMsT0FBTyxDQUFDLEVBQUUsQ0FBQyxDQUFDO0lBRTNDLE1BQU0sRUFBRSxXQUFXLEVBQUUsWUFBWSxFQUFFLFNBQVMsRUFBRSxhQUFhLEVBQUUsR0FDM0QsSUFBQSx1Q0FBaUMsRUFBQyxPQUFPLENBQUMsRUFBRSxDQUFDLENBQUM7SUFFaEQsTUFBTSxTQUFTLEdBQUcsS0FBSyxFQUFFLE9BQWUsRUFBRSxFQUFFO1FBQzFDLE1BQU0sU0FBUyxDQUFDLE9BQU8sRUFBRTtZQUN2QixTQUFTLEVBQUUsS0FBSyxJQUFJLEVBQUU7Z0JBQ3BCLE9BQU8sQ0FBQyxLQUFLLENBQUMsQ0FBQztnQkFDZixVQUFLLENBQUMsT0FBTyxDQUFDLDhDQUE4QyxDQUFDLENBQUM7WUFDaEUsQ0FBQztZQUNELE9BQU8sRUFBRSxDQUFDLEtBQUssRUFBRSxFQUFFO2dCQUNqQixVQUFLLENBQUMsS0FBSyxDQUFDLHlDQUF5QyxDQUFDLENBQUM7WUFDekQsQ0FBQztTQUNGLENBQUMsQ0FBQztJQUNMLENBQUMsQ0FBQztJQUVGLE1BQU0sWUFBWSxHQUFHLEtBQUssRUFBRSxPQUFlLEVBQUUsRUFBRTtRQUM3QyxNQUFNLFlBQVksQ0FBQyxPQUFPLEVBQUU7WUFDMUIsU0FBUyxFQUFFLEtBQUssSUFBSSxFQUFFO2dCQUNwQixVQUFLLENBQUMsT0FBTyxDQUFDLGtEQUFrRCxDQUFDLENBQUM7WUFDcEUsQ0FBQztZQUNELE9BQU8sRUFBRSxDQUFDLEtBQUssRUFBRSxFQUFFO2dCQUNqQixPQUFPLENBQUMsR0FBRyxDQUFDLEtBQUssQ0FBQyxDQUFDO2dCQUNuQixVQUFLLENBQUMsS0FBSyxDQUFDLDhDQUE4QyxDQUFDLENBQUM7WUFDOUQsQ0FBQztTQUNGLENBQUMsQ0FBQztJQUNMLENBQUMsQ0FBQztJQUVGLE9BQU8sQ0FDTCx1QkFBQyxXQUFNLElBQUMsSUFBSSxFQUFFLElBQUksRUFBRSxZQUFZLEVBQUUsT0FBTyxZQUN2Qyx3QkFBQyxXQUFNLENBQUMsT0FBTyxJQUFDLFNBQVMsRUFBQyxNQUFNLGFBQzlCLHVCQUFDLFdBQU0sQ0FBQyxNQUFNLGNBQ1osd0JBQUMsV0FBTSxDQUFDLEtBQUssdUJBQU0sT0FBTyxDQUFDLElBQUksNEJBQW9DLEdBQ3JELEVBQ2hCLHdCQUFDLFdBQU0sQ0FBQyxJQUFJLElBQUMsU0FBUyxFQUFDLG9DQUFvQyxhQUN6RCx3QkFBQyxTQUFJLElBQUMsT0FBTyxFQUFDLE1BQU0sd0JBQ1YsT0FBTyxDQUFDLElBQUksaURBQTZDLEdBQUcsRUFDbkUsT0FBTyxDQUFDLFNBQVMsRUFBRSxNQUFNLHNCQUN6QixPQUFPLENBQUMsU0FBUyxFQUFFLE1BQU0sS0FBSyxDQUFDLENBQUMsQ0FBQyxDQUFDLEVBQUUsQ0FBQyxDQUFDLENBQUMsR0FBRywrQkFDdEMsRUFDUCxnQ0FBSyxTQUFTLEVBQUMsd0JBQXdCLFlBQ3JDLHdCQUFDLFVBQUssZUFDSix1QkFBQyxVQUFLLENBQUMsTUFBTSxjQUNYLHdCQUFDLFVBQUssQ0FBQyxHQUFHLGVBQ1IsdUJBQUMsVUFBSyxDQUFDLFVBQVUsaUNBQWtDLEVBQ25ELHVCQUFDLFVBQUssQ0FBQyxVQUFVLElBQUMsU0FBUyxFQUFDLFlBQVksd0JBRXJCLElBQ1QsR0FDQyxFQUVmLHVCQUFDLFVBQUssQ0FBQyxJQUFJLGNBQ1IsY0FBYyxDQUFDLENBQUMsQ0FBQyxDQUNoQixjQUFjLENBQUMsR0FBRyxDQUFDLENBQUMsS0FBSyxFQUFFLEVBQUUsQ0FBQyxDQUM1Qix3QkFBQyxVQUFLLENBQUMsR0FBRyxlQUNSLHVCQUFDLFVBQUssQ0FBQyxJQUFJLGNBQUUsS0FBSyxDQUFDLElBQUksR0FBYyxFQUNyQyx1QkFBQyxVQUFLLENBQUMsSUFBSSxJQUFDLFNBQVMsRUFBQyxZQUFZLFlBQy9CLE9BQU8sQ0FBQyxjQUFjLEVBQUUsRUFBRTt3REFDM0IsT0FBTyxDQUFDLGNBQWMsQ0FBQyxFQUFFLEtBQUssS0FBSyxDQUFDLEVBQUUsQ0FBQyxDQUFDLENBQUMsQ0FDdkMsdUJBQUMsV0FBTSxJQUNMLE9BQU8sRUFBRSxHQUFHLEVBQUUsQ0FBQyxZQUFZLENBQUMsS0FBSyxDQUFDLEVBQUUsQ0FBQyxFQUNyQyxTQUFTLEVBQUUsYUFBYSxFQUN4QixPQUFPLEVBQUMsUUFBUSx1QkFHVCxDQUNWLENBQUMsQ0FBQyxDQUFDLENBQ0YsdUJBQUMsV0FBTSxJQUNMLE9BQU8sRUFBRSxHQUFHLEVBQUUsQ0FBQyxTQUFTLENBQUMsS0FBSyxDQUFDLEVBQUUsQ0FBQyxFQUNsQyxRQUFRLEVBQ04sQ0FBQyxPQUFPLENBQUMsY0FBYyxFQUFFLEVBQUU7NERBQ3pCLE9BQU8sQ0FBQyxjQUFjLENBQUMsRUFBRSxLQUFLLEtBQUssQ0FBQyxFQUFFLENBQUM7NERBQ3pDLFVBQVUsRUFFWixTQUFTLEVBQUUsVUFBVSxvQkFHZCxDQUNWLEdBQ1UsS0F6QkMsS0FBSyxDQUFDLEVBQUUsQ0EwQlosQ0FDYixDQUFDLENBQ0gsQ0FBQyxDQUFDLENBQUMsQ0FDRix1QkFBQyxVQUFLLENBQUMsR0FBRyxjQUNSLHVCQUFDLFVBQUssQ0FBQyxJQUFJLDJDQUFzQyxHQUN2QyxDQUNiLEdBQ1UsSUFDUCxHQUNKLElBQ00sSUFDQyxHQUNWLENBQ1YsQ0FBQztBQUNKLENBQUMifQ==

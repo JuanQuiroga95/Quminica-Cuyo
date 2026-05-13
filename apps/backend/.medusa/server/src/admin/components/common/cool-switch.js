@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CoolSwitch = void 0;
+const jsx_runtime_1 = require("react/jsx-runtime");
+const ui_1 = require("@medusajs/ui");
+const icons_1 = require("@medusajs/icons");
+const CoolSwitch = ({ checked, onChange, fieldName, label, description, tooltip, }) => {
+    return ((0, jsx_runtime_1.jsxs)(ui_1.Container, { className: "bg-ui-bg-subtle flex flex-col gap-2", children: [(0, jsx_runtime_1.jsxs)("div", { className: "flex items-center gap-2", children: [(0, jsx_runtime_1.jsx)(ui_1.Switch, { name: fieldName, checked: checked, onCheckedChange: onChange }), (0, jsx_runtime_1.jsx)(ui_1.Label, { size: "xsmall", className: "txt-compact-small font-medium", children: label }), tooltip && ((0, jsx_runtime_1.jsx)(ui_1.Tooltip, { content: tooltip, className: "z-50", children: (0, jsx_runtime_1.jsx)(icons_1.InformationCircleSolid, { color: "gray" }) }))] }), (0, jsx_runtime_1.jsx)(ui_1.Text, { size: "xsmall", children: description })] }));
+};
+exports.CoolSwitch = CoolSwitch;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY29vbC1zd2l0Y2guanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi8uLi9zcmMvYWRtaW4vY29tcG9uZW50cy9jb21tb24vY29vbC1zd2l0Y2gudHN4Il0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7QUFBQSxxQ0FBdUU7QUFDdkUsMkNBQXlEO0FBRXpELE1BQU0sVUFBVSxHQUFHLENBQUMsRUFDbEIsT0FBTyxFQUNQLFFBQVEsRUFDUixTQUFTLEVBQ1QsS0FBSyxFQUNMLFdBQVcsRUFDWCxPQUFPLEdBUVIsRUFBRSxFQUFFO0lBQ0gsT0FBTyxDQUNMLHdCQUFDLGNBQVMsSUFBQyxTQUFTLEVBQUMscUNBQXFDLGFBQ3hELGlDQUFLLFNBQVMsRUFBQyx5QkFBeUIsYUFDdEMsdUJBQUMsV0FBTSxJQUFDLElBQUksRUFBRSxTQUFTLEVBQUUsT0FBTyxFQUFFLE9BQU8sRUFBRSxlQUFlLEVBQUUsUUFBUSxHQUFJLEVBQ3hFLHVCQUFDLFVBQUssSUFBQyxJQUFJLEVBQUMsUUFBUSxFQUFDLFNBQVMsRUFBQywrQkFBK0IsWUFDM0QsS0FBSyxHQUNBLEVBQ1AsT0FBTyxJQUFJLENBQ1YsdUJBQUMsWUFBTyxJQUFDLE9BQU8sRUFBRSxPQUFPLEVBQUUsU0FBUyxFQUFDLE1BQU0sWUFDekMsdUJBQUMsOEJBQXNCLElBQUMsS0FBSyxFQUFDLE1BQU0sR0FBRyxHQUMvQixDQUNYLElBQ0csRUFDTix1QkFBQyxTQUFJLElBQUMsSUFBSSxFQUFDLFFBQVEsWUFBRSxXQUFXLEdBQVEsSUFDOUIsQ0FDYixDQUFDO0FBQ0osQ0FBQyxDQUFDO0FBRU8sZ0NBQVUifQ==

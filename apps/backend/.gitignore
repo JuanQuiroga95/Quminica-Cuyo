@@ -24,4 +24,4 @@ build
 !.yarn/sdks
 !.yarn/versions
 
-.medusa
+# .medusa is committed to avoid Railway OOM during build
