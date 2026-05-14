@@ -64,6 +64,14 @@ const Login = ({ setCurrentView }: Props) => {
           >
             Registrarse
           </Button>
+          <hr className="my-2 border-neutral-200" />
+          <Button
+            variant="secondary"
+            className="w-full h-10 border-dashed border-neutral-300"
+            onClick={() => window.open("https://b2b-starterbackend-production-4f03.up.railway.app/app", "_blank")}
+          >
+            Acceso Panel Administrador
+          </Button>
         </div>
       </form>
     </div>
