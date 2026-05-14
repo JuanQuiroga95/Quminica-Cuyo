@@ -47,5 +47,17 @@ export default defineConfig({
         ],
       },
     },
+    "eventBus": {
+      resolve: "@medusajs/event-bus-redis",
+      options: {
+        redisUrl: process.env.REDIS_URL,
+      },
+    },
+    "cacheService": {
+      resolve: "@medusajs/cache-redis",
+      options: {
+        redisUrl: process.env.REDIS_URL,
+      },
+    },
   },
 });

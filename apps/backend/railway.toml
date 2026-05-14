@@ -2,7 +2,7 @@
 buildCommand = "echo 'Skipping build, using pre-committed .medusa directory'"
 
 [deploy]
-startCommand = "pnpm start"
+startCommand = "mkdir -p node_modules/@medusajs/dashboard/dist && cp -r .medusa/server/public/admin/. node_modules/@medusajs/dashboard/dist/ && medusa start -H 0.0.0.0 -p ${PORT:-9000}"
 restartPolicyType = "ON_FAILURE"
 restartPolicyMaxRetries = 3
 
