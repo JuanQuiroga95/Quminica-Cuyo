@@ -18,8 +18,7 @@ export default defineConfig({
     },
   },
   admin: {
-    disable: false,
-    path: "/admin",
+    disable: true,
     backendUrl: process.env.MEDUSA_BACKEND_URL,
   },
   modules: {
