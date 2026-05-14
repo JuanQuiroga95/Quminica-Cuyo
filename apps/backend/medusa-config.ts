@@ -32,5 +32,20 @@ export default defineConfig({
     [APPROVAL_MODULE]: {
       resolve: "./src/modules/approval",
     },
+    "file": {
+      resolve: "@medusajs/medusa/file",
+      options: {
+        providers: [
+          {
+            resolve: "@medusajs/medusa/file-local",
+            id: "local",
+            options: {
+              upload_dir: "static",
+              backend_url: process.env.MEDUSA_BACKEND_URL || "https://b2b-starterbackend-production-4f03.up.railway.app",
+            },
+          },
+        ],
+      },
+    },
   },
 });
