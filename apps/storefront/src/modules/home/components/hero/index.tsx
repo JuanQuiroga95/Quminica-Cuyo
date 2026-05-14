@@ -68,18 +68,18 @@ const Hero = () => {
           </div>
 
           {/* Stats bar */}
-          <div className="flex flex-wrap justify-center gap-8 sm:gap-16 mt-8 pt-8 border-t border-white/10 relative z-30">
+          <div className="flex flex-wrap justify-center gap-8 sm:gap-16 mt-8 pt-8 border-t border-white/10 relative z-30 bg-white/40 backdrop-blur-md rounded-2xl p-6 border border-white/20 shadow-xl shadow-blue-900/5">
             <div className="text-center group transition-transform hover:scale-105">
-              <p className="text-3xl sm:text-4xl font-extrabold text-white drop-shadow-md">20+</p>
-              <p className="text-xs sm:text-sm text-blue-200 font-medium uppercase tracking-wider">Años de experiencia</p>
+              <p className="text-3xl sm:text-4xl font-extrabold text-slate-900 drop-shadow-sm">20+</p>
+              <p className="text-xs sm:text-sm text-blue-800 font-semibold uppercase tracking-wider">Años de experiencia</p>
             </div>
             <div className="text-center group transition-transform hover:scale-105">
-              <p className="text-3xl sm:text-4xl font-extrabold text-white drop-shadow-md">500+</p>
-              <p className="text-xs sm:text-sm text-blue-200 font-medium uppercase tracking-wider">Clientes B2B</p>
+              <p className="text-3xl sm:text-4xl font-extrabold text-slate-900 drop-shadow-sm">500+</p>
+              <p className="text-xs sm:text-sm text-blue-800 font-semibold uppercase tracking-wider">Clientes B2B</p>
             </div>
             <div className="text-center group transition-transform hover:scale-105">
-              <p className="text-3xl sm:text-4xl font-extrabold text-white drop-shadow-md">100+</p>
-              <p className="text-xs sm:text-sm text-blue-200 font-medium uppercase tracking-wider">Productos</p>
+              <p className="text-3xl sm:text-4xl font-extrabold text-slate-900 drop-shadow-sm">100+</p>
+              <p className="text-xs sm:text-sm text-blue-800 font-semibold uppercase tracking-wider">Productos</p>
             </div>
           </div>
         </div>
