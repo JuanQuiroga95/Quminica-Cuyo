@@ -8,7 +8,8 @@ const Hero = () => {
   return (
     <>
       {/* Hero Section */}
-      <div className="relative h-[80vh] w-full overflow-hidden bg-gradient-to-br from-slate-900 via-blue-950 to-indigo-950">
+      {/* Hero Section */}
+      <div className="relative min-h-[90vh] w-full overflow-hidden bg-gradient-to-br from-slate-900 via-blue-950 to-indigo-950 flex flex-col items-center justify-center">
         {/* Animated background pattern */}
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-0 left-0 w-full h-full" style={{
@@ -23,9 +24,9 @@ const Hero = () => {
           backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%23ffffff'%3E%3Cpath d='M40 10 L55 20 L55 40 L40 50 L25 40 L25 20 Z' fill='none' stroke='%23ffffff' stroke-width='1'/%3E%3C/g%3E%3C/svg%3E")`,
         }} />
 
-        <div className="absolute inset-0 z-10 flex flex-col justify-center items-center text-center px-4 sm:px-8 lg:px-32 gap-6">
+        <div className="relative z-20 flex flex-col justify-center items-center text-center px-4 sm:px-8 lg:px-32 gap-8 py-20">
           {/* Company badge */}
-          <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20">
+          <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mt-8">
             <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
             <span className="text-emerald-300 text-xs sm:text-sm font-medium tracking-wider uppercase">
               Distribuidora de Materias Primas
@@ -48,7 +49,7 @@ const Hero = () => {
             la industria. Más de 20 años siendo líderes en la región de Cuyo, Argentina.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 mt-4">
+          <div className="flex flex-col sm:flex-row gap-4 mt-2">
             <LocalizedClientLink href="/store">
               <Button 
                 variant="primary" 
@@ -68,18 +69,20 @@ const Hero = () => {
           </div>
 
           {/* Stats bar */}
-          <div className="flex flex-wrap justify-center gap-8 sm:gap-16 mt-8 pt-8 border-t border-white/10 relative z-30 bg-white/40 backdrop-blur-md rounded-2xl p-6 border border-white/20 shadow-xl shadow-blue-900/5">
-            <div className="text-center group transition-transform hover:scale-105">
-              <p className="text-3xl sm:text-4xl font-extrabold text-slate-900 drop-shadow-sm">20+</p>
-              <p className="text-xs sm:text-sm text-blue-800 font-semibold uppercase tracking-wider">Años de experiencia</p>
+          <div className="flex flex-wrap justify-center gap-8 sm:gap-16 mt-12 p-8 bg-slate-900/90 backdrop-blur-xl rounded-3xl border border-white/10 shadow-2xl relative z-40">
+            <div className="text-center group transition-transform hover:scale-105 px-4">
+              <p className="text-3xl sm:text-4xl font-black text-white">20+</p>
+              <p className="text-xs sm:text-sm text-blue-300 font-bold uppercase tracking-widest mt-1">Años de experiencia</p>
             </div>
-            <div className="text-center group transition-transform hover:scale-105">
-              <p className="text-3xl sm:text-4xl font-extrabold text-slate-900 drop-shadow-sm">500+</p>
-              <p className="text-xs sm:text-sm text-blue-800 font-semibold uppercase tracking-wider">Clientes B2B</p>
+            <div className="h-12 w-px bg-white/10 hidden sm:block" />
+            <div className="text-center group transition-transform hover:scale-105 px-4">
+              <p className="text-3xl sm:text-4xl font-black text-white">500+</p>
+              <p className="text-xs sm:text-sm text-blue-300 font-bold uppercase tracking-widest mt-1">Clientes B2B</p>
             </div>
-            <div className="text-center group transition-transform hover:scale-105">
-              <p className="text-3xl sm:text-4xl font-extrabold text-slate-900 drop-shadow-sm">100+</p>
-              <p className="text-xs sm:text-sm text-blue-800 font-semibold uppercase tracking-wider">Productos</p>
+            <div className="h-12 w-px bg-white/10 hidden sm:block" />
+            <div className="text-center group transition-transform hover:scale-105 px-4">
+              <p className="text-3xl sm:text-4xl font-black text-white">100+</p>
+              <p className="text-xs sm:text-sm text-blue-300 font-bold uppercase tracking-widest mt-1">Productos</p>
             </div>
           </div>
         </div>
