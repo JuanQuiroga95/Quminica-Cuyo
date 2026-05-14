@@ -40,8 +40,8 @@ export default defineConfig({
             resolve: "@medusajs/file-local",
             id: "local",
             options: {
-              upload_dir: "static",
-              backend_url: "https://b2b-starterbackend-production-4f03.up.railway.app",
+              upload_dir: "uploads",
+              backend_url: "https://b2b-starterbackend-production-4f03.up.railway.app/uploads",
             },
           },
         ],
