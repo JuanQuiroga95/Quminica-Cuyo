@@ -37,11 +37,13 @@ export default defineConfig({
       options: {
         providers: [
           {
-            resolve: "@medusajs/file-local",
-            id: "local",
+            resolve: "./src/modules/file/providers/cloudinary",
+            id: "cloudinary",
             options: {
-              upload_dir: "uploads",
-              backend_url: "https://b2b-starterbackend-production-4f03.up.railway.app/uploads",
+              cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+              api_key: process.env.CLOUDINARY_API_KEY,
+              api_secret: process.env.CLOUDINARY_API_SECRET,
+              secure: true,
             },
           },
         ],
