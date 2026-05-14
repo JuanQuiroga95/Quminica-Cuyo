@@ -41,7 +41,7 @@ export default defineConfig({
             id: "local",
             options: {
               upload_dir: "static",
-              backend_url: process.env.MEDUSA_BACKEND_URL || "https://b2b-starterbackend-production-4f03.up.railway.app",
+              backend_url: "https://b2b-starterbackend-production-4f03.up.railway.app",
             },
           },
         ],
