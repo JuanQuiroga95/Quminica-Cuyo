@@ -15,7 +15,7 @@
   ],
   "scripts": {
     "build": "medusa build",
-    "start": "rm -rf .medusa && cp -r medusa_build .medusa && medusa start -H 0.0.0.0 -p ${PORT:-9000}",
+    "start": "rm -rf .medusa && cp -r medusa_build .medusa && mkdir -p public/admin && cp -r .medusa/server/public/admin/. public/admin/ && echo '--- RUTA ACTUAL ---' && pwd && echo '--- CONTENIDO DE PUBLIC/ADMIN ---' && ls -R public/admin && medusa start -H 0.0.0.0 -p ${PORT:-9000}",
     "dev": "medusa develop",
     "clean": "rm -rf .medusa/server .medusa/admin node_modules",
     "test:integration:http": "TEST_TYPE=integration:http NODE_OPTIONS=--experimental-vm-modules jest --silent=false --runInBand --forceExit",
