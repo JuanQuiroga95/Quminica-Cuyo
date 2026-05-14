@@ -33,11 +33,11 @@ export default defineConfig({
       resolve: "./src/modules/approval",
     },
     "file": {
-      resolve: "@medusajs/medusa/file",
+      resolve: "@medusajs/file",
       options: {
         providers: [
           {
-            resolve: "@medusajs/medusa/file-local",
+            resolve: "@medusajs/file-local",
             id: "local",
             options: {
               upload_dir: "static",
